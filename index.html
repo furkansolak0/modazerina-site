@@ -1793,7 +1793,7 @@ footer {
 
 <script>
 // ─── PAGE NAVIGATION ────────────────────────────────────────
-function showPage(page) {
+function showPage(page, pushState = true) {
   const home = document.getElementById('page-home');
   const collection = document.getElementById('page-collection');
   document.getElementById('page-legal').style.display = 'none';
@@ -1815,7 +1815,16 @@ function showPage(page) {
     if (window.scrollY <= 40) header.classList.remove('scrolled');
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (pushState) history.pushState({ page }, '', page === 'home' ? '/' : '/' + page);
 }
+
+window.addEventListener('popstate', (e) => {
+  const page = (e.state && e.state.page) ? e.state.page : 'home';
+  showPage(page, false);
+});
+
+// İlk yüklemede state'i kaydet
+history.replaceState({ page: 'home' }, '', '/');
 
 // ─── YASAL SAYFALAR ─────────────────────────────────────────
 // Satıcı bilgileri: tüm sözleşme sayfaları buradan doldurulur. Boş olanlar sayfada sarı işaretli görünür.
