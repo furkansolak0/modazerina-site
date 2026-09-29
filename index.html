@@ -235,7 +235,7 @@ header.header-white .logo-dark  { display: block; }
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.55);
   color: var(--white);
-  font-family: 'Brixton', sans-serif;
+  font-family: 'Cocogoose', sans-serif;
   font-size: 13px;
   font-weight: normal;
   letter-spacing: 0.32em;
@@ -574,7 +574,7 @@ footer {
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 64px;
   border-bottom: 1px solid var(--border);
@@ -721,6 +721,131 @@ footer {
 .reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
 .reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.24s; }
 .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.36s; }
+
+/* ─── ATÖLYE ───────────────────────────────────────────────── */
+.atelier {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.atelier-img { overflow: hidden; position: relative; background: #fdfdfd; }
+.atelier-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 1.2s ease; }
+.atelier:hover .atelier-img img { transform: scale(1.03); }
+.atelier-text { padding: 30px 64px; display: flex; flex-direction: column; justify-content: center; }
+.atelier-kicker {
+  font-family: 'Cocogoose', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(26,26,26,0.4);
+}
+.atelier-heading {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  margin: 8px 0 8px;
+}
+.atelier-lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(26,26,26,0.6);
+  max-width: 380px;
+  margin-bottom: 16px;
+}
+.atelier-steps { list-style: none; padding: 0; margin: 0 0 18px; border-top: 1px solid var(--border); max-width: 400px; }
+.atelier-steps li { padding: 7px 0; border-bottom: 1px solid var(--border); }
+.atelier-steps strong {
+  display: block;
+  font-family: 'Cocogoose', sans-serif;
+  font-weight: normal;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+.atelier-steps p { font-family: 'Josefin Sans', sans-serif; font-weight: 300; font-size: 12.5px; line-height: 1.5; color: rgba(26,26,26,0.6); margin: 0; }
+.atelier-cta {
+  align-self: flex-start;
+  font-family: 'Cocogoose', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--black);
+  transition: letter-spacing 0.4s;
+}
+.atelier-cta span { display: inline-block; transition: transform 0.4s; }
+.atelier-cta:hover span { transform: translateX(6px); }
+@media (max-width: 900px) {
+  .atelier { grid-template-columns: 1fr; }
+  .atelier-img { height: 300px; }
+  .atelier-text { padding: 28px 24px; }
+  .atelier-heading { font-size: 28px; }
+  .atelier-heading .br-desk { display: none; }
+}
+
+/* ─── YASAL SAYFALAR ───────────────────────────────────────── */
+.legal-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + 64px) 32px 96px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--black);
+}
+.legal-back {
+  font-family: 'Cocogoose', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.legal-back:hover { opacity: 1; }
+.legal-kicker {
+  display: block;
+  margin-top: 48px;
+  font-family: 'Cocogoose', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(26,26,26,0.35);
+}
+.legal-page h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 1.2;
+  margin: 10px 0 6px;
+}
+.legal-date { font-size: 12px; color: rgba(26,26,26,0.45); margin-bottom: 40px; }
+.legal-page h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  margin: 40px 0 12px;
+}
+.legal-page p, .legal-page li { margin-bottom: 14px; }
+.legal-page ul, .legal-page ol { padding-left: 22px; margin-bottom: 14px; }
+.legal-page strong { font-weight: 400; color: #000; }
+.legal-page a { text-decoration: underline; text-underline-offset: 3px; }
+/* doldurulmamış satıcı bilgisi: yayına almadan önce hepsi dolmalı */
+.legal-page mark.eksik { background: #fff3b0; color: #7a5a00; padding: 0 4px; border-radius: 3px; font-weight: 400; }
+@media (max-width: 600px) {
+  .legal-page { padding: calc(var(--header-h) + 32px) 20px 64px; font-size: 14px; }
+  .legal-page h1 { font-size: 32px; }
+}
 
 /* ─── COLLECTION PAGE ──────────────────────────────────────── */
 .collection-page {
@@ -992,7 +1117,7 @@ footer {
     src="Hero.png"
     alt="ModaZerina">
   <div class="hero-overlay"></div>
-  <a class="hero-cta" href="#" onclick="showPage('collection');return false;">SHOP NOW</a>
+  <a class="hero-cta" href="#" onclick="showPage('collection');return false;">Koleksiyonu Keşfet</a>
 </section>
 
 <!-- ─── CATEGORIES ─────────────────────────────────────────── -->
@@ -1024,31 +1149,6 @@ footer {
 </section>
 
 <!-- ─── COLLECTION BANNER ──────────────────────────────────── -->
-<section class="banner reveal">
-  <div class="banner-img-wrap">
-    <img src="Hero2.png" alt="2025 Koleksiyonu">
-  </div>
-  <div class="banner-overlay">
-    <span class="banner-label">2025 Koleksiyonu</span>
-    <a class="banner-cta" href="#" onclick="showPage('collection');return false;">SHOP NOW</a>
-  </div>
-</section>
-
-<!-- ─── VIDEO PLACEHOLDER ──────────────────────────────────── -->
-<div class="video-divider reveal">
-  <span>Kişiye Özel, Sınırsız Zarafet</span>
-</div>
-
-<section class="video-section reveal">
-  <video autoplay loop muted playsinline>
-    <source src="images/video.mp4" type="video/mp4">
-  </video>
-  <div class="video-overlay">
-    <p class="video-overlay-label">2025 Koleksiyonu</p>
-    <a class="video-overlay-cta" href="#" onclick="showPage('collection');return false;">SHOP NOW</a>
-  </div>
-</section>
-
 <!-- ─── SERVICES ──────────────────────────────────────────── -->
 <section class="services reveal-stagger">
   <div class="service-item">
@@ -1075,13 +1175,22 @@ footer {
 </section>
 
 <!-- ─── NEWSLETTER ─────────────────────────────────────────── -->
-<section class="newsletter reveal">
-  <span class="newsletter-label">Bülten</span>
-  <h2 class="newsletter-heading">Yeni Koleksiyonlardan<br>İlk Siz Haberdar Olun</h2>
-  <form class="newsletter-form" onsubmit="return false;">
-    <input class="newsletter-input" type="email" placeholder="E-posta adresiniz">
-    <button class="newsletter-btn" type="submit">Abone Ol</button>
-  </form>
+<section class="atelier reveal">
+  <div class="atelier-img">
+    <img src="images/atolye.jpg" alt="ModaZerina atölyesinde kişiye özel dikilen elbise" loading="lazy">
+  </div>
+  <div class="atelier-text">
+    <span class="atelier-kicker">Atölye</span>
+    <h2 class="atelier-heading">Yalnızca Sizin İçin<br class="br-desk"> Dikilir</h2>
+    <p class="atelier-lead">Her ModaZerina parçası, sipariş verdiğiniz an atölyemizde sizin ölçülerinizle hayat bulur.</p>
+    <ol class="atelier-steps">
+      <li><div><strong>Modelinizi Seçin</strong><p>Koleksiyondan beğendiğiniz modeli ve rengi belirleyin.</p></div></li>
+      <li><div><strong>Ölçülerinizi İletin</strong><p>Beden rehberimizle ölçülerinizi alın, bizimle paylaşın.</p></div></li>
+      <li><div><strong>Size Özel Dikilir</strong><p>Elbiseniz atölyemizde, ustalarımız tarafından özenle dikilir.</p></div></li>
+      <li><div><strong>Kapınıza Gelir</strong><p>Özel ambalajında, kontrolden geçmiş olarak size ulaşır.</p></div></li>
+    </ol>
+    <a class="atelier-cta" href="https://wa.me/905396628483?text=Merhaba%2C%20ki%C5%9Fiye%20%C3%B6zel%20dikim%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank">Stilistimize Danışın <span>→</span></a>
+  </div>
 </section>
 
 </div><!-- /page-home -->
@@ -1409,6 +1518,233 @@ footer {
 </div><!-- /collection-page -->
 </div><!-- /page-collection -->
 
+<!-- ─── YASAL SAYFALAR ─────────────────────────────────────────
+     Satıcı bilgileri <span data-s="…"> alanlarına SATICI nesnesinden (script) doldurulur. -->
+<div id="page-legal" style="display:none">
+  <article class="legal-page">
+    <a href="#" class="legal-back" onclick="showPage('home');return false;">← Ana Sayfa</a>
+    <div id="legal-content"></div>
+  </article>
+</div>
+
+<template id="legal-iade">
+  <span class="legal-kicker">Yardım</span>
+  <h1>İade ve Değişim Koşulları</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+
+  <p>ModaZerina'da sunulan tüm ürünler, siparişi veren müşterimizin kendi beden ölçüleri ve tercihleri doğrultusunda, siparişe özel olarak dikilmektedir. Hazır giyimden farklı olarak her ürün yalnızca bir kişi için üretildiğinden, iade ve değişim koşullarımız aşağıdaki esaslara tabidir. Sipariş veren her müşterimiz bu koşulları okumuş ve kabul etmiş sayılır.</p>
+
+  <h2>1. Cayma Hakkı Bulunmamaktadır</h2>
+  <p>Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin birinci fıkrasının (ç) bendi uyarınca, tüketicinin istekleri veya kişisel ihtiyaçları doğrultusunda hazırlanan mallara ilişkin sözleşmelerde cayma hakkı kullanılamaz. Ürünlerimiz kişiye özel ölçülerle üretildiğinden, <strong>sipariş onaylandıktan sonra fikir değişikliği, beğenmeme, vazgeçme veya benzeri nedenlerle iade ve değişim yapılmamaktadır.</strong> Bu husus sipariş öncesinde Ön Bilgilendirme Formu ile ayrıca bildirilir ve müşterinin onayı alınır.</p>
+
+  <h2>2. Ölçülerin Sorumluluğu</h2>
+  <p>Ürün, müşterinin bildirdiği ve sipariş özetinde yazılı olarak onayladığı ölçülere göre dikilir. <strong>Ölçülerin doğru ve eksiksiz alınması müşterinin sorumluluğundadır.</strong> Onaylanan ölçülere uygun olarak dikilmiş bir ürünün müşterinin beklentisini karşılamaması, üzerine istenildiği gibi oturmaması veya müşterinin ölçü tercihinden kaynaklanan uyumsuzluklar üretim hatası veya ayıp olarak değerlendirilmez ve iade, değişim veya ücretsiz düzeltme gerekçesi oluşturmaz. Bu durumlarda <span data-s="tadilat"></span></p>
+
+  <h2>3. Ayıp Sayılmayan Durumlar</h2>
+  <p>El işçiliğiyle yapılan üretimin doğası gereği aşağıdaki durumlar ayıp olarak kabul edilmez:</p>
+  <ul>
+    <li>Onaylanan ölçülere göre 2 cm'ye kadar olan dikiş toleransları,</li>
+    <li>Ekran, cihaz ve ışık ayarlarına bağlı olarak ürün görselleri ile gerçek ürün arasında oluşabilecek renk tonu farklılıkları,</li>
+    <li>Kumaşın dokusu, parlaklığı, dökümü ve desen yerleşimi gibi doğal özelliklerinden kaynaklanan farklılıklar,</li>
+    <li>Ürün etiketinde veya tarafımızca bildirilen yıkama, ütüleme ve bakım talimatlarına uyulmamasından, hatalı kullanımdan veya olağan kullanım sonucu yıpranmadan kaynaklanan hasarlar,</li>
+    <li>Teslimattan sonra müşteri veya üçüncü kişilerce yapılan tadilat, kesim veya değişiklikler.</li>
+  </ul>
+
+  <h2>4. Üretim Hatası ve Ayıplı Ürün</h2>
+  <p>Ürünün dikiş veya kumaş kaynaklı bir üretim hatası taşıması ya da onaylanan sipariş özetinden (model, renk, kumaş veya ölçüler) farklı üretilmesi hâlinde müşterimiz, 6502 sayılı Tüketicinin Korunması Hakkında Kanun'dan doğan haklarını kullanabilir. Bu durumda:</p>
+  <ol>
+    <li>Bildirim, ürünün teslim alındığı tarihten itibaren <strong>30 gün içinde</strong> yapılmalıdır.</li>
+    <li>Bildirimle birlikte sipariş bilgileri ve hatayı açıkça gösteren fotoğraf ve/veya video iletilmelidir.</li>
+    <li>ModaZerina, iddia edilen hatayı değerlendirmek üzere ürünü incelemek için geri isteme hakkına sahiptir. İnceleme için gönderilecek ürün kullanılmamış, yıkanmamış, etiketleri ve ambalajı ile birlikte olmalıdır.</li>
+    <li>İnceleme sonucunda üretim hatası tespit edilirse, öncelikle ücretsiz onarım (düzeltme) önerilir. Kanunun 11. maddesi uyarınca, seçilen talebin satıcı için orantısız güçlükler doğurması hâlinde diğer seçimlik haklardan biri uygulanır.</li>
+    <li>İnceleme sonucunda hatanın müşteri kullanımından veya yukarıda sayılan ayıp sayılmayan durumlardan kaynaklandığı tespit edilirse, ürün müşteriye kargo ücreti müşteriye ait olmak üzere geri gönderilir.</li>
+  </ol>
+
+  <h2>5. Sipariş İptali</h2>
+  <p>Siparişler, ödemenin tamamının alınmasının ardından üretime alınır. Kumaş kesimi başladıktan sonra, ürünün kişiye özel niteliği nedeniyle <strong>sipariş iptal edilemez ve ödeme iade edilmez.</strong> Kumaş kesimi başlamadan önce yapılan iptal talepleri kabul edilir ve ödeme, varsa işlem masrafları düşülerek 14 gün içinde iade edilir.</p>
+
+  <h2>6. Başvuru</h2>
+  <p>Tüm talepleriniz için WhatsApp hattımız (<span data-s="telefon"></span>) veya <span data-s="eposta"></span> adresi üzerinden, sipariş bilgilerinizle birlikte bize ulaşabilirsiniz. Talepler, en geç 2 iş günü içinde yanıtlanır.</p>
+
+  <h2>7. Uyuşmazlık</h2>
+  <p>Talepleriniz için öncelikle bizimle iletişime geçmenizi rica ederiz. Uyuşmazlık hâlinde, Ticaret Bakanlığınca her yıl ilan edilen parasal sınırlar dâhilinde Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir.</p>
+</template>
+
+<template id="legal-kargo">
+  <span class="legal-kicker">Yardım</span>
+  <h1>Kargo ve Teslimat</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+
+  <h2>1. Üretim Süresi</h2>
+  <p>Ürünlerimiz, ödemenin tamamının alınması ve ölçülerin müşteri tarafından yazılı olarak onaylanmasının ardından sizin için özel olarak dikilir. Üretim süresi ortalama <span data-s="dikimSuresi"></span>'dür. Kumaş tedariki, yoğun sezon ve resmî tatiller bu süreyi uzatabilir; böyle bir durumda tarafınıza bilgi verilir.</p>
+
+  <h2>2. Kargo ve Teslimat Süresi</h2>
+  <p>Üretimi tamamlanan siparişler <span data-s="kargoFirmasi"></span> ile gönderilir. Kargoya verildikten sonra teslimat, bulunduğunuz bölgeye göre genellikle <span data-s="kargoSuresi"></span> içinde gerçekleşir. Kargo takip numaranız WhatsApp üzerinden iletilir. Kargo firmasından kaynaklanan gecikmelerde süreç tarafımızca takip edilir. Toplam teslim süresi, yasal üst sınır olan 30 günü aşmaz; ancak mücbir sebep hâlleri bu sürenin dışındadır.</p>
+
+  <h2>3. Kargo Ücreti</h2>
+  <p><span data-s="ucretsizKargo"></span> ve üzeri siparişlerde kargo ücretsizdir. Bu tutarın altındaki siparişlerde kargo ücreti <span data-s="kargoUcreti"></span> olup sipariş toplamına eklenir ve sipariş onayı öncesinde bildirilir.</p>
+
+  <h2>4. Gönderim Öncesi Kontrol</h2>
+  <p>Her ürün, kargoya verilmeden önce kalite kontrolünden geçirilir ve fotoğraflanır. Bu kayıtlar, ürünün gönderim anındaki durumunu gösteren belge olarak saklanır.</p>
+
+  <h2>5. Teslim Alırken</h2>
+  <p>Kargonuzu teslim alırken paketin hasarlı, ıslak, ezik veya açılmış olup olmadığını kargo görevlisinin yanında kontrol ediniz. Hasarlı paketler için kargo görevlisine <strong>hasar tespit tutanağı</strong> tutturmanız ve durumu aynı gün bize bildirmeniz gerekmektedir. Paketi açarken video kaydı almanız, olası bir sorunun hızlı ve sorunsuz çözülmesini sağlar.</p>
+
+  <h2>6. Adres ve Teslim Alınamayan Gönderiler</h2>
+  <p>Teslimat, sipariş sırasında bildirdiğiniz adrese yapılır. Adres bilgisinin eksik veya hatalı olmasından, alıcıya ulaşılamamasından veya gönderinin yasal bekleme süresi içinde teslim alınmamasından kaynaklanan gecikmelerden ModaZerina sorumlu tutulamaz. Bu nedenlerle tarafımıza geri dönen gönderilerin yeniden gönderim kargo ücreti müşteriye aittir. Adres değişikliği talepleri, ürün kargoya verilmeden önce iletilmelidir.</p>
+</template>
+
+<template id="legal-mesafeli">
+  <span class="legal-kicker">Kurumsal</span>
+  <h1>Mesafeli Satış Sözleşmesi</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+
+  <h2>Madde 1 — Taraflar</h2>
+  <p><strong>Satıcı</strong><br>
+  Unvan: <span data-s="unvan"></span><br>
+  Adres: <span data-s="adres"></span><br>
+  Vergi Dairesi / No: <span data-s="vergi"></span><br>
+  <span data-s="mersisSatiri"></span>
+  Telefon: <span data-s="telefon"></span><br>
+  E-posta: <span data-s="eposta"></span></p>
+  <p><strong>Alıcı</strong><br>
+  Siparişi veren ve sipariş sırasında adı, soyadı, adresi ve iletişim bilgilerini bildiren kişi (bundan sonra "Alıcı" olarak anılacaktır).</p>
+
+  <h2>Madde 2 — Konu</h2>
+  <p>İşbu sözleşmenin konusu, Alıcı'nın Satıcı'ya ait modazerina.com internet sitesi ve/veya WhatsApp hattı üzerinden sipariş verdiği, Alıcı'nın bildirdiği ölçüler doğrultusunda kişiye özel olarak üretilecek ürünün satışı ve teslimine ilişkin olarak, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca tarafların hak ve yükümlülüklerinin belirlenmesidir.</p>
+
+  <h2>Madde 3 — Ürün, Bedel ve Sipariş Özeti</h2>
+  <p>Ürünün modeli, rengi, kumaşı, ölçüleri, adedi, vergiler dâhil satış bedeli, kargo ücreti ve toplam ödenecek tutar, sipariş onayı öncesinde Alıcı'ya yazılı olarak (WhatsApp mesajı veya e-posta) iletilen sipariş özetinde yer alır. Sipariş özeti işbu sözleşmenin ayrılmaz bir parçasıdır. İnternet sitesinde veya sosyal medyada yer alan ürün görselleri temsilidir; renk tonları cihaz ve ışık koşullarına göre farklılık gösterebilir.</p>
+  <p>Satış bedelinin açık ve belirgin bir yazım veya sistem hatası sonucu gerçek bedelin çok altında gösterilmesi hâlinde Satıcı, siparişi iptal ederek ödenen tutarı iade etme hakkını saklı tutar.</p>
+
+  <h2>Madde 4 — Ölçüler ve Alıcı'nın Beyanı</h2>
+  <p>Alıcı, bildirdiği ölçülerin kendisine ait olduğunu, doğru ve eksiksiz olduğunu beyan eder. Ölçüler, üretime başlanmadan önce sipariş özetinde Alıcı'ya yazılı olarak iletilir ve Alıcı'nın onayı alınır. <strong>Onaylanan ölçülerin doğruluğundan Alıcı sorumludur.</strong> Onaylanan ölçülere uygun olarak üretilen ürün, sözleşmeye uygun kabul edilir; ölçü tercihinden kaynaklanan uyumsuzluklar ayıp sayılmaz. El işçiliğinin doğası gereği 2 cm'ye kadar olan dikiş toleransları ürünün sözleşmeye uygunluğunu etkilemez.</p>
+
+  <h2>Madde 5 — Ödeme</h2>
+  <p>Ödeme, <span data-s="odeme"></span> yoluyla yapılır. <strong>Üretim, satış bedelinin tamamı Satıcı'nın hesabına geçtikten sonra başlar.</strong> Ödemenin yapılmaması veya eksik yapılması hâlinde üretim ve teslim süreleri işlemez.</p>
+
+  <h2>Madde 6 — Teslimat</h2>
+  <p>Ürün, üretiminin tamamlanmasını takiben Alıcı'nın bildirdiği teslimat adresine kargo ile gönderilir. Teslimat, sipariş onayından itibaren yasal süre olan 30 günü aşmamak kaydıyla, Kargo ve Teslimat sayfasında belirtilen sürelerde yapılır. Alıcı'nın hatalı veya eksik adres bildirmesi, gönderiyi teslim almaması veya kendisine ulaşılamaması hâlinde doğacak gecikmelerden Satıcı sorumlu değildir; geri dönen gönderinin yeniden gönderim masrafı Alıcı'ya aittir. Satıcı'nın kendi kusuruyla teslimi süresinde gerçekleştirememesi hâlinde Alıcı sözleşmeyi feshedebilir; bu durumda ödenen bedel en geç 14 gün içinde iade edilir.</p>
+
+  <h2>Madde 7 — Cayma Hakkı</h2>
+  <p>Sözleşme konusu ürün, Alıcı'nın bildirdiği kişisel ölçüler ve tercihleri doğrultusunda siparişe özel olarak üretildiğinden, Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin birinci fıkrasının (ç) bendi uyarınca <strong>Alıcı'nın cayma hakkı bulunmamaktadır.</strong> Alıcı, bu hususta sipariş öncesinde Ön Bilgilendirme Formu ile bilgilendirildiğini ve bunu kabul ettiğini beyan eder.</p>
+
+  <h2>Madde 8 — Sipariş İptali</h2>
+  <p>Kumaş kesimi başladıktan sonra sipariş iptal edilemez ve ödenen bedel iade edilmez. Kumaş kesimi başlamadan önce yapılan iptal talepleri kabul edilir; ödenen bedel, varsa ödeme işlem masrafları düşülerek 14 gün içinde iade edilir.</p>
+
+  <h2>Madde 9 — Ayıplı Ürün</h2>
+  <p>Ürünün ayıplı olması hâlinde Alıcı, teslimden itibaren 30 gün içinde durumu fotoğraf ve/veya videoyla belgeleyerek Satıcı'ya bildirir. Satıcı, ürünü inceleme amacıyla geri isteme hakkına sahiptir. Ayıbın varlığı tespit edildiğinde Alıcı, 6502 sayılı Kanun'un 11. maddesinde sayılan seçimlik haklardan birini kullanabilir; seçilen hakkın Satıcı için orantısız güçlükler doğurması hâlinde Kanun'un aynı maddesi uyarınca diğer bir seçimlik hak uygulanır. Yıkama ve bakım talimatlarına aykırı kullanım, olağan yıpranma, teslimden sonra yapılan tadilatlar, cihazlara bağlı renk tonu farklılıkları ve kumaşın doğal özellikleri ayıp kapsamında değildir.</p>
+
+  <h2>Madde 10 — Mücbir Sebepler</h2>
+  <p>Doğal afet, salgın hastalık, savaş, grev, genel kargo veya ulaşım aksaklıkları, kumaş tedarikçisinden kaynaklanan ve Satıcı'nın kontrolü dışındaki olağanüstü durumlar gibi mücbir sebep hâllerinde Satıcı'nın yükümlülükleri, mücbir sebebin devam ettiği süre boyunca askıya alınır ve bu sürelerden Satıcı sorumlu tutulamaz. Satıcı bu durumu Alıcı'ya derhâl bildirir.</p>
+
+  <h2>Madde 11 — Sorumluluğun Sınırlandırılması</h2>
+  <p>Satıcı'nın sorumluluğu, 6502 sayılı Kanun'un emredici hükümleri saklı kalmak kaydıyla, sözleşme konusu ürünün bedeli ile sınırlıdır. Satıcı; kâr kaybı, etkinlik veya organizasyon iptali gibi dolaylı zararlardan sorumlu değildir.</p>
+
+  <h2>Madde 12 — Delil Niteliğindeki Kayıtlar</h2>
+  <p>Taraflar arasındaki WhatsApp ve e-posta yazışmaları, onaylanan sipariş özeti ve ölçü bilgileri, ödeme kayıtları ile ürünün gönderim öncesinde çekilen fotoğrafları, işbu sözleşmeden doğabilecek uyuşmazlıklarda delil olarak kullanılabilir.</p>
+
+  <h2>Madde 13 — Kişisel Verilerin Korunması</h2>
+  <p>Alıcı'ya ait kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması Kanunu'na uygun olarak ve KVKK Aydınlatma Metni'nde belirtilen amaçlarla işlenir.</p>
+
+  <h2>Madde 14 — Uyuşmazlıkların Çözümü</h2>
+  <p>İşbu sözleşmeden doğan uyuşmazlıklarda, Ticaret Bakanlığınca her yıl ilan edilen parasal sınırlar dâhilinde Alıcı'nın yerleşim yerindeki veya işlemi yaptığı yerdeki Tüketici Hakem Heyetleri ile Tüketici Mahkemeleri yetkilidir.</p>
+
+  <h2>Madde 15 — Yürürlük</h2>
+  <p>Alıcı, siparişini onaylamadan önce işbu sözleşmeyi, Ön Bilgilendirme Formu'nu ve İade ve Değişim Koşulları'nı okuduğunu, içeriğini anladığını ve kabul ettiğini beyan eder. Sözleşme, siparişin Alıcı tarafından yazılı olarak (WhatsApp mesajı veya e-posta ile) onaylanmasıyla yürürlüğe girer. Sözleşme ve sipariş özeti, Alıcı'ya kalıcı veri saklayıcısı ile iletilir.</p>
+</template>
+
+<template id="legal-onbilgi">
+  <span class="legal-kicker">Kurumsal</span>
+  <h1>Ön Bilgilendirme Formu</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+  <p>İşbu form, Mesafeli Sözleşmeler Yönetmeliği'nin 5. maddesi uyarınca, sipariş onayından önce Alıcı'nın bilgilendirilmesi amacıyla hazırlanmıştır. Alıcı, siparişini onaylamakla bu formu okuduğunu ve kabul ettiğini beyan eder.</p>
+
+  <h2>1. Satıcı Bilgileri</h2>
+  <p>Unvan: <span data-s="unvan"></span><br>
+  Adres: <span data-s="adres"></span><br>
+  Vergi Dairesi / No: <span data-s="vergi"></span><br>
+  <span data-s="mersisSatiri"></span>
+  Telefon: <span data-s="telefon"></span><br>
+  E-posta: <span data-s="eposta"></span></p>
+
+  <h2>2. Ürünün Temel Nitelikleri</h2>
+  <p>Ürünün modeli, rengi, kumaşı ve Alıcı tarafından bildirilen ölçüleri, sipariş onayı öncesinde Alıcı'ya iletilen sipariş özetinde yer alır. <strong>Ürünler, Alıcı'nın bildirdiği ve yazılı olarak onayladığı ölçülere göre kişiye özel olarak üretilir; ölçülerin doğruluğundan Alıcı sorumludur.</strong> El işçiliğinin doğası gereği 2 cm'ye kadar dikiş toleransı ve ekranlara bağlı renk tonu farklılıkları olabilir.</p>
+
+  <h2>3. Fiyat ve Ödeme</h2>
+  <p>Ürün fiyatlarına tüm vergiler dâhildir. Kargo ücreti ve toplam ödenecek tutar sipariş özetinde ayrıca gösterilir. Ödeme, <span data-s="odeme"></span> yoluyla yapılır. Üretim, bedelin tamamının ödenmesinin ardından başlar.</p>
+
+  <h2>4. Teslimat</h2>
+  <p>Ürün, ödeme ve ölçü onayının ardından ortalama <span data-s="dikimSuresi"></span> içinde üretilir ve <span data-s="kargoFirmasi"></span> ile Alıcı'nın bildirdiği adrese gönderilir. Teslimat 30 günlük yasal süreyi aşmaz. <span data-s="ucretsizKargo"></span> ve üzeri siparişlerde kargo ücretsizdir; bu tutarın altındaki siparişlerde kargo ücreti <span data-s="kargoUcreti"></span>'dir.</p>
+
+  <h2>5. Cayma Hakkı ve İptal</h2>
+  <p>Ürünler, Alıcı'nın istekleri ve kişisel ölçüleri doğrultusunda siparişe özel olarak üretildiğinden, Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin birinci fıkrasının (ç) bendi uyarınca <strong>cayma hakkı bulunmamaktadır.</strong> Kumaş kesimi başladıktan sonra sipariş iptal edilemez. Ürünün ayıplı olması hâlinde Alıcı'nın 6502 sayılı Kanun'dan doğan hakları, İade ve Değişim Koşulları'nda belirtilen usule uygun olarak saklıdır.</p>
+
+  <h2>6. Şikâyet ve Başvuru</h2>
+  <p>Şikâyetlerinizi yukarıdaki iletişim bilgileri üzerinden Satıcı'ya iletebilirsiniz. Uyuşmazlık hâlinde, parasal sınırlar dâhilinde Tüketici Hakem Heyetlerine veya Tüketici Mahkemelerine başvurabilirsiniz.</p>
+</template>
+
+<template id="legal-kvkk">
+  <span class="legal-kicker">Kurumsal</span>
+  <h1>KVKK Aydınlatma Metni</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+  <p>İşbu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, veri sorumlusu sıfatıyla <span data-s="unvan"></span> ("ModaZerina") tarafından hazırlanmıştır.</p>
+
+  <h2>1. İşlenen Kişisel Veriler</h2>
+  <ul>
+    <li><strong>Kimlik ve iletişim:</strong> ad, soyad, telefon numarası, e-posta adresi,</li>
+    <li><strong>Teslimat:</strong> teslimat ve fatura adresi,</li>
+    <li><strong>Sipariş:</strong> sipariş içeriği, beden ölçüleri, ödeme bilgisi (tutar ve tarih), fatura bilgileri,</li>
+    <li><strong>Yazışmalar:</strong> WhatsApp ve e-posta üzerinden iletilen mesaj, fotoğraf ve videolar.</li>
+  </ul>
+
+  <h2>2. İşleme Amaçları ve Hukuki Sebepler</h2>
+  <p>Kişisel verileriniz; siparişinizin alınması, ürünün ölçülerinize göre üretilmesi, teslimatın yapılması, ödeme ve faturalama işlemlerinin yürütülmesi, talep ve şikâyetlerinizin sonuçlandırılması ile olası hukuki uyuşmazlıklarda hakların tesisi, kullanılması ve korunması amaçlarıyla, KVKK'nın 5. maddesinin ikinci fıkrasındaki <em>bir sözleşmenin kurulması veya ifası</em> (c), <em>veri sorumlusunun hukuki yükümlülüğü</em> (ç), <em>bir hakkın tesisi, kullanılması veya korunması</em> (e) ve <em>meşru menfaat</em> (f) hukuki sebeplerine dayanılarak işlenir.</p>
+  <p>Kampanya ve yeni koleksiyon duyuruları gibi ticari elektronik iletiler yalnızca açık onayınız alınarak gönderilir; onayınızı dilediğiniz zaman geri alabilirsiniz.</p>
+
+  <h2>3. Aktarım</h2>
+  <p>Kişisel verileriniz, yukarıdaki amaçlarla sınırlı olarak; teslimat için kargo şirketine, ödeme için ilgili banka veya ödeme kuruluşuna, muhasebe ve mali yükümlülükler için mali müşavirimize, hukuki uyuşmazlıklarda avukatlarımıza ve talep hâlinde yetkili kamu kurum ve kuruluşlarına aktarılabilir. İletişim için kullanılan WhatsApp ve e-posta hizmetlerinin sunucuları yurt dışında bulunabilir; bu hizmetler üzerinden yürütülen yazışmalar KVKK'nın 9. maddesine uygun olarak gerçekleştirilir.</p>
+
+  <h2>4. Toplama Yöntemi</h2>
+  <p>Kişisel verileriniz; internet sitemiz, WhatsApp hattımız ve e-posta yoluyla, tarafınızca doğrudan iletilmesi suretiyle elektronik ortamda toplanır.</p>
+
+  <h2>5. Saklama Süresi</h2>
+  <p>Kişisel verileriniz, işleme amacının gerektirdiği süre ve ilgili mevzuatta öngörülen yasal saklama süreleri boyunca (ticari defter ve belgeler için 10 yıl) saklanır; sürenin sona ermesiyle silinir, yok edilir veya anonim hâle getirilir.</p>
+
+  <h2>6. Haklarınız</h2>
+  <p>KVKK'nın 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini, şartları oluştuğunda silinmesini veya yok edilmesini isteme, bu işlemlerin aktarılan üçüncü kişilere bildirilmesini isteme, otomatik sistemlerle analiz sonucu aleyhinize bir sonuç doğmasına itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+
+  <h2>7. Başvuru</h2>
+  <p>Taleplerinizi, kimliğinizi doğrulayacak bilgilerle birlikte <span data-s="eposta"></span> adresine veya <span data-s="adres"></span> adresine yazılı olarak iletebilirsiniz. Başvurunuz en geç 30 gün içinde ücretsiz olarak sonuçlandırılır.</p>
+</template>
+
+<template id="legal-gizlilik">
+  <span class="legal-kicker">Kurumsal</span>
+  <h1>Gizlilik ve Çerez Politikası</h1>
+  <p class="legal-date">Son güncelleme: 29 Eylül 2026</p>
+
+  <h2>1. Genel</h2>
+  <p>ModaZerina olarak ziyaretçilerimizin ve müşterilerimizin gizliliğine önem veriyoruz. Bu politika, modazerina.com internet sitesini ziyaret ettiğinizde hangi bilgilerin işlendiğini açıklar. Sipariş süreçlerinde işlenen kişisel veriler hakkında ayrıntılı bilgi için KVKK Aydınlatma Metni'ni inceleyebilirsiniz.</p>
+
+  <h2>2. Çerezler</h2>
+  <p>İnternet sitemiz, reklam veya ziyaretçi takibi amacıyla çerez ya da benzeri izleme teknolojileri kullanmamaktadır. İleride bu tür teknolojilerin kullanılması hâlinde bu politika güncellenecek ve gerekli durumlarda onayınız alınacaktır.</p>
+
+  <h2>3. Üçüncü Taraf Hizmetler</h2>
+  <p>Sitemizin barındırılması ve yazı tiplerinin gösterilmesi için üçüncü taraf hizmet sağlayıcılardan yararlanılmaktadır. Bu hizmetler, sitenin size ulaştırılabilmesi için teknik olarak gerekli olan IP adresi ve tarayıcı bilgisi gibi verileri kendi politikaları çerçevesinde işleyebilir. WhatsApp veya Instagram bağlantılarına tıkladığınızda Meta Platforms'un gizlilik politikası geçerli olur; bu platformların veri işleme faaliyetlerinden ModaZerina sorumlu değildir.</p>
+
+  <h2>4. Bülten</h2>
+  <p>Bülten aboneliği için paylaştığınız e-posta adresi, yalnızca yeni koleksiyon ve kampanya duyurularının iletilmesi amacıyla ve onayınıza dayanılarak kullanılır. Aboneliğinizden dilediğiniz zaman çıkabilirsiniz.</p>
+
+  <h2>5. Fikrî Mülkiyet</h2>
+  <p>Sitede yer alan tüm tasarım, görsel, fotoğraf, logo, video ve metinler ModaZerina'ya aittir veya ModaZerina tarafından lisanslı olarak kullanılmaktadır. Bu içerikler, ModaZerina'nın yazılı izni olmaksızın kopyalanamaz, çoğaltılamaz, ticari amaçla kullanılamaz; ürün tasarımları taklit edilemez.</p>
+
+  <h2>6. Güvenlik</h2>
+  <p>Sitemiz, verilerin iletimi sırasında şifreli bağlantı (HTTPS) kullanır. Ödeme kartı bilgileriniz sitemiz üzerinden alınmaz ve tarafımızca saklanmaz.</p>
+
+  <h2>7. İletişim</h2>
+  <p>Gizlilikle ilgili sorularınız için <span data-s="eposta"></span> adresinden bize ulaşabilirsiniz.</p>
+</template>
+
 <!-- ─── FOOTER ─────────────────────────────────────────────── -->
 <footer>
   <div class="footer-main">
@@ -1425,21 +1761,19 @@ footer {
       <a href="#">Beden Rehberi</a>
     </nav>
 
-    <div class="footer-contact">
-      <span class="footer-contact-label">Bize Ulaşın</span>
-      <a href="https://instagram.com/modazerina" target="_blank">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-        @modazerina
-      </a>
-      <a href="https://wa.me/905396628483" target="_blank">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.523 5.847L0 24l6.335-1.492C8.024 23.468 9.979 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.637-.49-5.157-1.346l-.371-.214-3.762.987 1.004-3.654-.234-.381A9.938 9.938 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-        </svg>
-        +90 539 662 84 83
-      </a>
-    </div>
+    <nav class="footer-nav">
+      <span class="footer-nav-label">Yardım</span>
+      <a href="#" onclick="showLegal('iade');return false;">İade ve Değişim</a>
+      <a href="#" onclick="showLegal('kargo');return false;">Kargo ve Teslimat</a>
+    </nav>
+
+    <nav class="footer-nav">
+      <span class="footer-nav-label">Kurumsal</span>
+      <a href="#" onclick="showLegal('mesafeli');return false;">Mesafeli Satış Sözleşmesi</a>
+      <a href="#" onclick="showLegal('onbilgi');return false;">Ön Bilgilendirme Formu</a>
+      <a href="#" onclick="showLegal('kvkk');return false;">KVKK Aydınlatma Metni</a>
+      <a href="#" onclick="showLegal('gizlilik');return false;">Gizlilik ve Çerez Politikası</a>
+    </nav>
   </div>
 
   <div class="footer-bottom">
@@ -1462,7 +1796,14 @@ footer {
 function showPage(page) {
   const home = document.getElementById('page-home');
   const collection = document.getElementById('page-collection');
-  if (page === 'collection') {
+  document.getElementById('page-legal').style.display = 'none';
+  if (page === 'legal') {
+    home.style.display = 'none';
+    collection.style.display = 'none';
+    document.getElementById('page-legal').style.display = 'block';
+    header.classList.remove('scrolled');
+    header.classList.add('header-white');
+  } else if (page === 'collection') {
     home.style.display = 'none';
     collection.style.display = 'block';
     header.classList.remove('scrolled');
@@ -1474,6 +1815,40 @@ function showPage(page) {
     if (window.scrollY <= 40) header.classList.remove('scrolled');
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── YASAL SAYFALAR ─────────────────────────────────────────
+// Satıcı bilgileri: tüm sözleşme sayfaları buradan doldurulur. Boş olanlar sayfada sarı işaretli görünür.
+const SATICI = {
+  unvan: '',            // şahıs: Ad Soyad (+ varsa işletme adı) / şirket: tam unvan
+  adres: '',
+  vergi: '',            // Vergi Dairesi / Vergi No (şahısta TC Kimlik No)
+  mersis: '',           // yalnızca şirketlerde; şahıs işletmesinde boş bırakın
+  telefon: '0539 662 84 83',
+  eposta: '',
+  odeme: '',            // ör. "banka havalesi/EFT veya kredi kartı ödeme bağlantısı"
+  dikimSuresi: '',      // ör. "5–7 iş günü"
+  kargoFirmasi: '',     // ör. "Yurtiçi Kargo"
+  kargoSuresi: '',      // ör. "1–3 iş günü"
+  kargoUcreti: '',      // ör. "120 TL"
+  ucretsizKargo: '1.500 TL',
+  tadilat: '',          // ölçü kaynaklı uyumsuzlukta ne yapılacağı, tam cümle
+};
+const SATICI_ETIKET = { unvan: 'Satıcı unvanı', adres: 'Açık adres', vergi: 'Vergi dairesi / no', telefon: 'Telefon',
+  eposta: 'E-posta adresi', odeme: 'Ödeme yöntemleri', dikimSuresi: 'Dikim süresi', kargoFirmasi: 'Kargo firması',
+  kargoSuresi: 'Kargo süresi', kargoUcreti: 'Kargo ücreti', ucretsizKargo: 'Ücretsiz kargo sınırı',
+  tadilat: 'Ölçü kaynaklı uyumsuzlukta uygulanacak çözüm (ör. ücretli tadilat)' };
+
+function showLegal(id) {
+  const box = document.getElementById('legal-content');
+  box.innerHTML = document.getElementById('legal-' + id).innerHTML;
+  box.querySelectorAll('[data-s]').forEach(el => {
+    const k = el.dataset.s;
+    if (k === 'mersisSatiri') { el.outerHTML = SATICI.mersis ? `MERSİS No: ${SATICI.mersis}<br>` : ''; return; }
+    const v = SATICI[k];
+    el.outerHTML = v ? v : `<mark class="eksik">[${SATICI_ETIKET[k] || k}]</mark>`;
+  });
+  showPage('legal');
 }
 
 // Logo → go home
