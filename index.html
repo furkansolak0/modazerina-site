@@ -2035,11 +2035,5 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script>
-const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
-function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
-</script>
 </body>
 </html>
