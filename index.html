@@ -1959,8 +1959,20 @@ window.addEventListener('popstate', (e) => {
   showPage(page, false);
 });
 
-// İlk yüklemede state'i kaydet
-history.replaceState({ page: 'home' }, '', '/');
+// İlk yüklemede ?p= parametresini oku (404.html yönlendirmesinden gelir)
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var p = params.get('p');
+  if (p === 'collection' || p === 'collection/') {
+    history.replaceState({ page: 'collection' }, '', '/collection');
+    showPage('collection', false);
+  } else if (p === 'legal') {
+    history.replaceState({ page: 'legal' }, '', '/legal');
+    showPage('legal', false);
+  } else {
+    history.replaceState({ page: 'home' }, '', '/');
+  }
+})();
 
 // ─── YASAL SAYFALAR ─────────────────────────────────────────
 // Satıcı bilgileri: tüm sözleşme sayfaları buradan doldurulur. Boş olanlar sayfada sarı işaretli görünür.
