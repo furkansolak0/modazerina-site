@@ -206,10 +206,9 @@ header {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="acc-body" id="acc1-body">
-          <div class="acc-content">
+          <div class="acc-content" id="acc-urun-detay">
             <p>El yapımı, kişiye özel dikim.</p>
             <p>Sipariş sonrası 7-10 iş günü içinde teslim.</p>
-            <p>Kumaş: %100 İpek Kupra veya özel kumaş.</p>
           </div>
         </div>
       </div>
@@ -219,10 +218,9 @@ header {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="acc-body" id="acc2-body">
-          <div class="acc-content">
+          <div class="acc-content" id="acc-teslimat">
             <p>Türkiye geneli ücretsiz kargo.</p>
-            <p>Kargoya verilme süresi: sipariş onayından sonra 7-10 iş günü.</p>
-            <p>Teslimat: kargoya verildikten 1-3 iş günü.</p>
+            <p>Kargoya verildikten 1-3 iş günü içinde teslim.</p>
           </div>
         </div>
       </div>
@@ -308,6 +306,16 @@ async function loadProduct() {
   document.getElementById('p-alt').textContent = p.alt;
   document.getElementById('p-price').textContent = '₺' + p.fiyat.toLocaleString('tr-TR');
   document.getElementById('p-price-old').textContent = '₺' + p.fiyat_eski.toLocaleString('tr-TR');
+
+  // Açıklamalar
+  if (p.aciklama) {
+    document.getElementById('acc-urun-detay').innerHTML =
+      p.aciklama.split('\n').map(l => l ? `<p>${l}</p>` : '').join('');
+  }
+  if (p.teslimat) {
+    document.getElementById('acc-teslimat').innerHTML =
+      p.teslimat.split('\n').map(l => l ? `<p>${l}</p>` : '').join('');
+  }
 
   // Görseller
   const imgWrap = document.getElementById('product-images');
