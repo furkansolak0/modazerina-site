@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ürün — ModaZerina</title>
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@100;200;300&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'JosefinBold'; src:url('images/josefin-sans.bold.ttf'); }
+@font-face { font-family:'Cocogoose';  src:url('images/cocogoose.ttf'); }
+@font-face { font-family:'DINNext';    src:url('images/din-next.otf'); }
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --black: #1A1A1A;
+  --white: #FFFFFF;
+  --gray-bg: #f5f4f2;
+  --gray-mid: #999;
+  --gray-border: #e0e0e0;
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'JosefinBold','Josefin Sans', sans-serif;
+}
+body { font-family:var(--sans); color:var(--black); background:var(--white); }
+a { text-decoration:none; color:inherit; }
+
+/* ── HEADER ── */
+header {
+  position:sticky; top:0; z-index:200;
+  background:var(--white);
+  border-bottom:1px solid var(--gray-border);
+  height:60px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:0 28px;
+}
+.hd-left { font-size:11px; letter-spacing:.04em; }
+.hd-left a { opacity:.6; transition:opacity .2s; }
+.hd-left a:hover { opacity:1; }
+.hd-logo { display:flex; align-items:center; gap:10px; }
+.hd-logo img { height:36px; width:auto; display:block; }
+.hd-brand { font-family:var(--serif); font-size:14px; letter-spacing:.18em; text-transform:uppercase; }
+.hd-right { display:flex; align-items:center; justify-content:flex-end; gap:18px; }
+.icon-btn { background:none; border:none; cursor:pointer; padding:4px; display:flex; align-items:center; color:var(--black); opacity:.7; transition:opacity .2s; position:relative; }
+.icon-btn:hover { opacity:1; }
+.icon-btn:hover > svg { opacity:.6; }
+
+/* ── LAYOUT ── */
+.product-layout {
+  display:grid;
+  grid-template-columns:280px 1fr 280px;
+  min-height:calc(100vh - 60px);
+  align-items:start;
+}
+
+/* LEFT */
+.col-left {
+  padding:32px 24px;
+  position:sticky; top:60px;
+  max-height:calc(100vh - 60px);
+  overflow-y:auto;
+}
+.p-name { font-size:14px; font-weight:400; letter-spacing:.06em; color:var(--black); line-height:1.4; margin-bottom:4px; }
+.p-alt  { font-size:11px; font-weight:300; color:var(--gray-mid); letter-spacing:.04em; margin-bottom:4px; }
+.p-price-wrap { margin-bottom:28px; display:flex; align-items:center; gap:10px; }
+.p-price { font-size:13px; font-weight:400; color:var(--black); }
+.p-price-old { font-size:12px; color:var(--gray-mid); text-decoration:line-through; }
+
+.accordion { border-top:1px solid var(--gray-border); }
+.acc-item { border-bottom:1px solid var(--gray-border); }
+.acc-trigger {
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0; background:none; border:none; cursor:pointer;
+  font-family:var(--sans); font-size:10px; font-weight:400; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--black); text-align:left;
+}
+.acc-trigger svg { flex-shrink:0; transition:transform .2s; }
+.acc-trigger.open svg { transform:rotate(180deg); }
+.acc-body { overflow:hidden; max-height:0; transition:max-height .3s ease; }
+.acc-body.open { max-height:600px; }
+.acc-content { padding:0 0 16px; font-size:11px; font-weight:300; line-height:1.9; color:#555; font-family:'Josefin Sans',sans-serif; }
+.acc-content p { margin-bottom:4px; }
+
+/* RELATED */
+.related-wrap { margin-top:28px; }
+.related-title { font-size:9px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-mid); margin-bottom:12px; }
+.related-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.related-card { text-decoration:none; display:block; }
+.related-img { aspect-ratio:4/5; background:var(--gray-bg); margin-bottom:6px; overflow:hidden; }
+.related-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.related-card:hover .related-img img { transform:scale(1.03); }
+.related-name  { font-size:9px; color:var(--black); line-height:1.3; margin-bottom:2px; letter-spacing:.04em; }
+.related-price { font-size:9px; color:var(--gray-mid); }
+
+/* CENTER */
+.col-center { border-left:1px solid var(--gray-border); border-right:1px solid var(--gray-border); }
+.product-images { display:flex; flex-direction:column; gap:2px; }
+.prod-img { background:var(--gray-bg); width:100%; }
+.prod-img img { width:100%; height:auto; display:block; }
+
+/* RIGHT */
+.col-right {
+  padding:32px 24px;
+  position:sticky; top:60px;
+  max-height:calc(100vh - 60px);
+  overflow-y:auto;
+}
+.size-label { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--black); margin-bottom:12px; }
+.size-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.size-btn {
+  padding:10px 14px; border:1px solid var(--gray-border); background:var(--white);
+  font-family:var(--sans); font-size:11px; cursor:pointer; color:var(--black);
+  transition:border-color .15s, background .15s;
+  letter-spacing:.04em;
+}
+.size-btn:hover { border-color:var(--black); }
+.size-btn.active { background:var(--black); color:var(--white); border-color:var(--black); }
+
+.add-btn {
+  width:100%; padding:16px;
+  background:var(--black); color:var(--white);
+  border:none; font-family:var(--sans);
+  font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+  cursor:pointer; transition:opacity .2s;
+  margin-bottom:16px;
+}
+.add-btn:hover { opacity:.8; }
+
+.whatsapp-btn {
+  width:100%; padding:15px;
+  background:var(--white); color:var(--black);
+  border:1px solid var(--gray-border);
+  font-family:var(--sans); font-size:11px; font-weight:400; letter-spacing:.12em; text-transform:uppercase;
+  cursor:pointer; transition:border-color .2s, background .2s;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-bottom:20px;
+}
+.whatsapp-btn:hover { border-color:var(--black); }
+
+.ship-note { font-size:10px; color:var(--gray-mid); line-height:1.8; border-top:1px solid var(--gray-border); padding-top:16px; font-family:'Josefin Sans',sans-serif; font-weight:300; }
+
+/* ALSO LIKE */
+.also-section { padding:60px 24px; border-top:1px solid var(--gray-border); }
+.also-title { font-size:10px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--black); margin-bottom:24px; }
+.also-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.also-card { text-decoration:none; display:block; }
+.also-img { aspect-ratio:4/5; background:var(--gray-bg); overflow:hidden; margin-bottom:8px; }
+.also-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.also-card:hover .also-img img { transform:scale(1.03); }
+.also-info { display:flex; justify-content:space-between; padding:0 2px; gap:4px; }
+.also-name  { font-size:10px; color:var(--black); letter-spacing:.04em; }
+.also-price { font-size:10px; color:var(--black); white-space:nowrap; }
+
+/* MOBILE */
+@media(max-width:1024px) {
+  .product-layout { grid-template-columns:220px 1fr 220px; }
+}
+@media(max-width:768px) {
+  .product-layout { grid-template-columns:1fr; display:block; }
+  .col-left, .col-right { position:static; max-height:none; border-top:1px solid var(--gray-border); }
+  .col-center { border:none; }
+  .also-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="hd-left">
+    <a href="/">← Koleksiyon</a>
+  </div>
+  <a href="/" class="hd-logo">
+    <img src="Siyah.png" alt="ModaZerina">
+    <span class="hd-brand">ModaZerina</span>
+  </a>
+  <div class="hd-right">
+    <button class="icon-btn" aria-label="Hesap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    </button>
+    <button class="icon-btn" aria-label="Sepet">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="product-layout">
+
+  <!-- LEFT -->
+  <aside class="col-left">
+    <p class="p-name" id="p-name">Yükleniyor…</p>
+    <p class="p-alt"  id="p-alt"></p>
+    <div class="p-price-wrap">
+      <span class="p-price-old" id="p-price-old"></span>
+      <span class="p-price" id="p-price"></span>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" id="acc1">
+          Ürün Detayları
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body" id="acc1-body">
+          <div class="acc-content">
+            <p>El yapımı, kişiye özel dikim.</p>
+            <p>Sipariş sonrası 7-10 iş günü içinde teslim.</p>
+            <p>Kumaş: %100 İpek Kupra veya özel kumaş.</p>
+          </div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" id="acc2">
+          Kargo &amp; Teslimat
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body" id="acc2-body">
+          <div class="acc-content">
+            <p>Türkiye geneli ücretsiz kargo.</p>
+            <p>Kargoya verilme süresi: sipariş onayından sonra 7-10 iş günü.</p>
+            <p>Teslimat: kargoya verildikten 1-3 iş günü.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="related-wrap">
+      <p class="related-title">Benzer Ürünler</p>
+      <div class="related-grid" id="related-grid"></div>
+    </div>
+  </aside>
+
+  <!-- CENTER -->
+  <main class="col-center">
+    <div class="product-images" id="product-images"></div>
+  </main>
+
+  <!-- RIGHT -->
+  <aside class="col-right">
+    <p class="size-label">Beden Seç</p>
+    <div class="size-grid" id="size-grid">
+      <button class="size-btn" onclick="selectSize(this)">XS</button>
+      <button class="size-btn" onclick="selectSize(this)">S</button>
+      <button class="size-btn" onclick="selectSize(this)">M</button>
+      <button class="size-btn" onclick="selectSize(this)">L</button>
+      <button class="size-btn" onclick="selectSize(this)">XL</button>
+    </div>
+
+    <button class="add-btn" id="add-btn">Sepete Ekle</button>
+
+    <button class="whatsapp-btn" id="wa-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp ile Sipariş
+    </button>
+
+    <div class="ship-note">
+      Ücretsiz kargo — 1-3 iş günü teslimat.<br>
+      Kişiye özel dikim — 7-10 iş günü hazırlık süresi.
+    </div>
+  </aside>
+</div>
+
+<!-- BENZER ÜRÜNLER -->
+<div class="also-section">
+  <p class="also-title">Benzer Ürünler</p>
+  <div class="also-grid" id="also-grid"></div>
+</div>
+
+<script>
+['acc1','acc2'].forEach(id => {
+  const btn = document.getElementById(id);
+  const body = document.getElementById(id+'-body');
+  btn.addEventListener('click', () => {
+    const open = btn.classList.toggle('open');
+    body.classList.toggle('open', open);
+  });
+});
+
+function selectSize(el) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+let selectedSize = null;
+document.querySelectorAll('.size-btn').forEach(b => {
+  b.addEventListener('click', function() { selectedSize = this.textContent; });
+});
+
+async function loadProduct() {
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('urun');
+
+  let products = [];
+  try {
+    const r = await fetch('products.json');
+    products = await r.json();
+  } catch(e) {}
+
+  const p = products.find(x => x.slug === slug);
+  if (!p) { document.getElementById('p-name').textContent = 'Ürün bulunamadı.'; return; }
+
+  document.title = p.name + ' — ModaZerina';
+  document.getElementById('p-name').textContent = p.name;
+  document.getElementById('p-alt').textContent = p.alt;
+  document.getElementById('p-price').textContent = '₺' + p.fiyat.toLocaleString('tr-TR');
+  document.getElementById('p-price-old').textContent = '₺' + p.fiyat_eski.toLocaleString('tr-TR');
+
+  // Görseller
+  const imgWrap = document.getElementById('product-images');
+  imgWrap.innerHTML = p.gorseller.map((src, i) =>
+    `<div class="prod-img"><img src="${src}" alt="${p.name}" loading="${i===0?'eager':'lazy'}"></div>`
+  ).join('');
+
+  // WhatsApp
+  document.getElementById('wa-btn').addEventListener('click', () => {
+    const size = document.querySelector('.size-btn.active')?.textContent || '';
+    const msg = size
+      ? `Merhaba, ${p.name} ürününü ${size} beden sipariş etmek istiyorum.`
+      : `Merhaba, ${p.name} ürünü hakkında bilgi almak istiyorum.`;
+    window.open('https://wa.me/905000000000?text=' + encodeURIComponent(msg), '_blank');
+  });
+
+  // Sepet butonu
+  document.getElementById('add-btn').addEventListener('click', function() {
+    const size = document.querySelector('.size-btn.active');
+    if (!size) {
+      document.getElementById('size-grid').style.outline = '1px solid #000';
+      setTimeout(() => document.getElementById('size-grid').style.outline = '', 1200);
+      return;
+    }
+    this.textContent = 'Eklendi ✓';
+    setTimeout(() => this.textContent = 'Sepete Ekle', 2000);
+  });
+
+  // Benzer ürünler (aynı kategori)
+  const similar = products.filter(x => x.slug !== slug && x.kategori === p.kategori).slice(0, 4);
+  const also = document.getElementById('also-grid');
+  also.innerHTML = similar.map(s =>
+    `<a class="also-card" href="urun.html?urun=${s.slug}">
+      <div class="also-img"><img src="${s.gorseller[0]}" alt="${s.name}" loading="lazy"></div>
+      <div class="also-info">
+        <span class="also-name">${s.name}</span>
+        <span class="also-price">₺${s.fiyat.toLocaleString('tr-TR')}</span>
+      </div>
+    </a>`
+  ).join('');
+
+  // Sol kolon benzer
+  const relGrid = document.getElementById('related-grid');
+  relGrid.innerHTML = similar.slice(0, 2).map(s =>
+    `<a class="related-card" href="urun.html?urun=${s.slug}">
+      <div class="related-img"><img src="${s.gorseller[0]}" alt="${s.name}" loading="lazy"></div>
+      <p class="related-name">${s.name}</p>
+      <p class="related-price">₺${s.fiyat.toLocaleString('tr-TR')}</p>
+    </a>`
+  ).join('');
+}
+
+loadProduct();
+</script>
+</body>
+</html>
