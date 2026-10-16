@@ -157,9 +157,18 @@ header {
   .product-layout { grid-template-columns:220px 1fr 220px; }
 }
 @media(max-width:768px) {
-  .product-layout { grid-template-columns:1fr; display:block; }
-  .col-left, .col-right { position:static; max-height:none; border-top:1px solid var(--gray-border); }
-  .col-center { border:none; }
+  /* Mobilde sıra: fotoğraflar → isim/fiyat → WhatsApp → bilgiler */
+  .product-layout { display:flex; flex-direction:column; align-items:stretch; min-height:0; }
+  .col-left, .col-right { display:contents; }
+  .col-center { order:1; border:none; }
+  .col-left > *, .col-right > * { margin-left:20px; margin-right:20px; }
+  .p-name { order:2; margin-top:24px; font-size:16px; }
+  .p-alt, .p-price-wrap { order:2; }
+  .p-price-wrap { margin-bottom:20px; }
+  .whatsapp-btn { order:3; width:auto; }
+  .ship-note { order:4; margin-bottom:24px; }
+  .accordion { order:5; }
+  .related-wrap { display:none; }
   .also-grid { grid-template-columns:repeat(2,1fr); }
 }
 </style>
@@ -321,18 +330,6 @@ async function loadProduct() {
       ? `Merhaba, ${p.name} ürününü ${size} beden sipariş etmek istiyorum.`
       : `Merhaba, ${p.name} ürünü hakkında bilgi almak istiyorum.`;
     window.open('https://wa.me/905396628483?text=' + encodeURIComponent(msg), '_blank');
-  });
-
-  // Sepet butonu
-  document.getElementById('add-btn').addEventListener('click', function() {
-    const size = document.querySelector('.size-btn.active');
-    if (!size) {
-      document.getElementById('size-grid').style.outline = '1px solid #000';
-      setTimeout(() => document.getElementById('size-grid').style.outline = '', 1200);
-      return;
-    }
-    this.textContent = 'Eklendi ✓';
-    setTimeout(() => this.textContent = 'Sepete Ekle', 2000);
   });
 
   // Benzer ürünler (aynı kategori)
