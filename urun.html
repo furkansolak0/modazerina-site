@@ -237,7 +237,7 @@ header {
     </div>
 
     <div class="related-wrap">
-      <p class="related-title">Benzer Ürünler</p>
+      <p class="related-title">Bunları da Beğenebilirsiniz</p>
       <div class="related-grid" id="related-grid"></div>
     </div>
   </aside>
@@ -264,7 +264,7 @@ header {
 
 <!-- BENZER ÜRÜNLER -->
 <div class="also-section">
-  <p class="also-title">Benzer Ürünler</p>
+  <p class="also-title">Bunları da Beğenebilirsiniz</p>
   <div class="also-grid" id="also-grid"></div>
 </div>
 
@@ -332,8 +332,9 @@ async function loadProduct() {
     window.open('https://wa.me/905396628483?text=' + encodeURIComponent(msg), '_blank');
   });
 
-  // Benzer ürünler (aynı kategori)
-  const similar = products.filter(x => x.slug !== slug && x.kategori === p.kategori).slice(0, 4);
+  // Benzer ürünler (rastgele)
+  const pool = products.filter(x => x.slug !== slug).sort(() => Math.random() - 0.5);
+  const similar = pool.slice(0, 4);
   const also = document.getElementById('also-grid');
   also.innerHTML = similar.map(s =>
     `<a class="also-card" href="urun.html?urun=${s.slug}">
